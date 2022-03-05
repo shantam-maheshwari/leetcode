@@ -61,18 +61,18 @@ class Solution {
             }
             // nums[left:mid] is sorted
             else if (nums[left] <= nums[mid]) {
-                if (nums[left] <= target && target <= nums[mid]) {
-                    right = mid;
+                if (nums[left] <= target && target < nums[mid]) {
+                    right = mid - 1;
                 } else {
                     left = mid + 1;
                 }
             }
             // nums[mid:right] is sorted
             else {
-                if (nums[mid] <= target && target <= nums[right]) {
+                if (nums[mid] < target && target <= nums[right]) {
                     left = mid + 1;
                 } else {
-                    right = mid;
+                    right = mid - 1;
                 }
             }
         }
