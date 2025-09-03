@@ -1,0 +1,8 @@
+{
+    "python.testing.pytestArgs": [
+        ".",
+        "-s" // log stdout/stderr to console; already covered in pyproject.toml
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

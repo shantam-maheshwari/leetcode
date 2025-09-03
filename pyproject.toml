@@ -1,0 +1,13 @@
+[project]
+name = "leetcode"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.pytest.ini_options]
+python_files = "*.py" # otherwise pytest defaults to test_*.py
+addopts = "-s"        # log stdout/stderr to console
+pythonpath = ["."]    # Add current directory to python path for src imports
+
+[dependency-groups]
+dev = ["pre-commit>=4.2.0", "pytest>=8.3.5", "ruff>=0.11.5"]
