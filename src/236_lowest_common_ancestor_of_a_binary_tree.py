@@ -1,11 +1,6 @@
 from typing import Optional
 
-
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from src.utils.binary_tree import TreeNode
 
 
 class Solution:
