@@ -41,3 +41,8 @@ class Solution:
 )
 def test_verticalOrder(vals: List[Optional[int]], expected: List[List[int]]):
     assert Solution().verticalOrder(get_binary_tree_from_list(vals)) == expected
+
+
+# See follow up
+# 987. Vertical Order Traversal of a Binary Tree
+# where nodes at the same row and col should be sorted by their val
