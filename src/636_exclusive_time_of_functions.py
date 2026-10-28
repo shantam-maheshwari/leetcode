@@ -5,24 +5,31 @@ import pytest
 
 class Solution:
     def exclusiveTime(self, n: int, logs: List[str]) -> List[int]:
-        exclusive_times = [0] * n
+        time_spent = [0] * n
         stack = []
-        prev_time = 0
+        prev_start_time = 0
 
-        for i, log in enumerate(logs):
-            [fn, state, time] = log.split(":")
-            fn, time = int(fn), int(time)
+        for log in logs:
+            [id, status, timestamp] = log.split(":")
+            id, timestamp = int(id), int(timestamp)
 
-            if state == "start":
-                if stack:
-                    exclusive_times[stack[-1]] += time - prev_time
-                stack.append(fn)
-                prev_time = time
+            if not stack:
+                stack.append(id)
+                continue
+
+            if status == "start":
+                prev_id = stack[-1]
+                time_spent[prev_id] += timestamp - prev_start_time
+
+                stack.append(id)
+                prev_start_time = timestamp
             else:
-                exclusive_times[stack.pop()] += time - prev_time + 1
-                prev_time = time + 1
+                prev_id = stack.pop()
+                time_spent[prev_id] += timestamp - prev_start_time + 1
 
-        return exclusive_times
+                prev_start_time = timestamp + 1
+
+        return time_spent
 
 
 @pytest.mark.parametrize(

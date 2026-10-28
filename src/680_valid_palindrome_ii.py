@@ -30,4 +30,4 @@ class Solution:
     ("s", "expected"), [("aba", True), ("abc", False), ("abbxa", True)]
 )
 def test_validPalindrome(s: str, expected: bool):
-    return Solution().validPalindrome(s) == expected
+    assert Solution().validPalindrome(s) == expected
